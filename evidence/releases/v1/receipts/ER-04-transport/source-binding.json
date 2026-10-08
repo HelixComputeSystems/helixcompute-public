@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "binding_scope": "Opaque SHA-256 commitments to private frozen transport authority artifacts",
+  "authority_artifacts": [
+    {"role": "private authority commitment 1", "sha256": "4b6e1c8feea74123e6fddb340e5f0a30407f67bee171de726ca55b1897b840da"},
+    {"role": "private authority commitment 2", "sha256": "072c0029a32e04c56b1832f08a7e98afe07dbec20a14183f0d47f0d7e91ffdbe"},
+    {"role": "private authority commitment 3", "sha256": "295e64930c5749e0ce7b039ad3a6f60be2acf19b31ff81bf1ecb4abafec8b5c3"},
+    {"role": "private authority commitment 4", "sha256": "c5bcc4af855bdcfd6593e59a98389b912c44b79b551a95c9659f77912b6e2647"},
+    {"role": "private authority commitment 5", "sha256": "fcf3759999785246efc250c2bb4263cc94c74f2f569e030dee0914dca7abbfbc"},
+    {"role": "private authority commitment 6", "sha256": "576aa2752b565b6d6ae396f137a1caa756b7a04c92e8aab66e130840e5d48b7e"}
+  ],
+  "private_mapping_published": false,
+  "commitments_publicly_dereferenceable": false,
+  "commitments_rehashed_by_public_verifier": false
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "claim_ids": ["ER-04"],
+  "exact_permitted_statements": {
+    "ER-04": "Across three frozen 40-transition sparse/local campaigns, compressed expanded FULL used between 4.364290× and 4.475920× the application-payload bytes used by Helix under the N=5 snapshot policy, and between 7.594434× and 7.939030× under N=10. Across both policies, all 240 Helix transitions and all 120 expanded-FULL transitions reconstructed the expected state exactly."
+  },
+  "reproduction_level": "RECEIPT_VERIFICATION"
+}

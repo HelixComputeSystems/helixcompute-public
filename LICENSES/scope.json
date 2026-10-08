@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "release_id": "helix-evidence-v1",
+  "effective_for_tag": "evidence-v1.0.0",
+  "approved_on": "2026-10-08",
+  "copyright_holder": "Helix Compute Systems",
+  "assignments": [
+    {
+      "license": "BSD-2-Clause",
+      "license_text": "LICENSES/BSD-2-Clause.txt",
+      "files": [
+        "evidence/verify.py",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/verify.py",
+        "evidence/releases/v1/receipts/ER-04-transport/verify.py",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/verify.py",
+        "evidence/releases/v1/receipts/ER-06-scaling/verify.py",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/verify.py",
+        "tests/test_evidence_release.py"
+      ]
+    },
+    {
+      "license": "CC-BY-ND-4.0",
+      "license_text": "LICENSES/CC-BY-ND-4.0.txt",
+      "files": [
+        "README.md",
+        "USAGE.md",
+        "evidence/README.md",
+        "evidence/boundaries.md",
+        "evidence/claim.public.schema.json",
+        "evidence/claim.schema.json",
+        "evidence/claims-v1.json",
+        "evidence/historical-storage.md",
+        "evidence/limitations.md",
+        "evidence/methodology.md",
+        "evidence/releases/v1/APPROVAL.md",
+        "evidence/releases/v1/MANIFEST.sha256",
+        "evidence/releases/v1/README.md",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/MANIFEST.sha256",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/README.md",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/claim.json",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/environment.json",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/methodology.md",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/result.json",
+        "evidence/releases/v1/receipts/ER-03-kraken-transform-count/source-binding.json",
+        "evidence/releases/v1/receipts/ER-04-transport/MANIFEST.sha256",
+        "evidence/releases/v1/receipts/ER-04-transport/README.md",
+        "evidence/releases/v1/receipts/ER-04-transport/claim.json",
+        "evidence/releases/v1/receipts/ER-04-transport/environment.json",
+        "evidence/releases/v1/receipts/ER-04-transport/methodology.md",
+        "evidence/releases/v1/receipts/ER-04-transport/result.json",
+        "evidence/releases/v1/receipts/ER-04-transport/source-binding.json",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/MANIFEST.sha256",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/README.md",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/claim.json",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/environment.json",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/methodology.md",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/result.json",
+        "evidence/releases/v1/receipts/ER-05-historical-storage/source-binding.json",
+        "evidence/releases/v1/receipts/ER-06-scaling/MANIFEST.sha256",
+        "evidence/releases/v1/receipts/ER-06-scaling/README.md",
+        "evidence/releases/v1/receipts/ER-06-scaling/claim.json",
+        "evidence/releases/v1/receipts/ER-06-scaling/environment.json",
+        "evidence/releases/v1/receipts/ER-06-scaling/methodology.md",
+        "evidence/releases/v1/receipts/ER-06-scaling/result.json",
+        "evidence/releases/v1/receipts/ER-06-scaling/source-binding.json",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/MANIFEST.sha256",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/README.md",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/claim.json",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/environment.json",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/methodology.md",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/result.json",
+        "evidence/releases/v1/receipts/ER-11-governed-validation/source-binding.json",
+        "evidence/reproduction-levels.md",
+        "evidence/scaling.md",
+        "evidence/transport.md",
+        "evidence/validation.md"
+      ]
+    }
+  ],
+  "all_rights_reserved_files": [
+    ".gitattributes",
+    ".github/workflows/verify-evidence.yml",
+    ".gitignore",
+    "LICENSE.md",
+    "LICENSES/scope.json"
+  ],
+  "license_texts_governed_by_their_own_terms": [
+    "LICENSES/BSD-2-Clause.txt",
+    "LICENSES/CC-BY-ND-4.0.txt"
+  ],
+  "fallback": "All rights reserved for every file and right not expressly assigned above."
+}

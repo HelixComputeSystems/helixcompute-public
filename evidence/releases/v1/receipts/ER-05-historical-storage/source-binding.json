@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "binding_scope": "Opaque SHA-256 commitment to the controlling frozen private authority bundle",
+  "authority_artifacts": [
+    {
+      "role": "frozen private authority bundle",
+      "sha256": "64d381c65c377feb57c58785eb69bc769296864ce3cf69997350ba703c73ba18"
+    }
+  ],
+  "bundle_derivation": "SHA-256 over the LF-delimited, lexicographically sorted SHA-256 values in the private authority manifest",
+  "private_mapping_published": false,
+  "private_source_identities_published": false,
+  "commitments_publicly_dereferenceable": false,
+  "commitments_rehashed_by_public_verifier": false
+}

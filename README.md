@@ -1,54 +1,75 @@
-# Helix Compute
+# Helix Compute — Public Evidence
+
+> **Release status: `PUBLIC_RELEASE` — `evidence-v1.0.0`**
 
 ## Do More With Less Data.
 
-**Process only what changed.**
+**Keep what remains valid. Process what changed.**
 
-Helix reduces redundant computation, data movement, and storage by working from change instead of repeatedly processing complete state.
+Helix reduces repeated work when established state, validity, or derivable
+structure survives a transition. This repository contains bounded measurement
+receipts for that claim. It publishes evidence—not Helix Core or the private
+research program that produced it.
 
-### Compute less.
+## Strongest measured findings
 
-Process the work affected by change instead of recomputing everything that remains valid.
+| Finding | Measurement | Receipt |
+| --- | --- | --- |
+| **`1,027,744 → 173`** | **MEASURED LOGICAL WORK** — FULL performed approximately `5,941×` as many workload-defined rolling-row transforms; Helix performed `99.983%` fewer, with identical recorded canonical output | [`ER-03`](evidence/releases/v1/receipts/ER-03-kraken-transform-count/README.md) |
+| **`90.4×–93.3×`** | **MEASURED GOVERNED-VALIDATION WALL** — the frozen canonical FULL route took this many times as long as the experimental Helix route at approximately `0.1%` affected scope | [`ER-11`](evidence/releases/v1/receipts/ER-11-governed-validation/README.md) |
+| **Up to `7.939×`** | **MEASURED APPLICATION PAYLOAD** — expanded FULL bytes divided by Helix bytes in the tested sparse/local transport campaigns | [`ER-04`](evidence/releases/v1/receipts/ER-04-transport/README.md) |
+| **Up to `6.774×`** | **MEASURED RETAINED HISTORY** — expanded FULL bytes divided by Helix bytes for tested reconstructable histories | [`ER-05`](evidence/releases/v1/receipts/ER-05-historical-storage/README.md) |
 
-### Move less.
+These are comparator-specific results. In a separately tested dense transport
+condition, FULL was the smaller exact representation. In the history campaign,
+a competent incremental comparator retained fewer application-file bytes than
+Helix but did not carry identical authority semantics. No universal crossover
+threshold or smallest-encoding claim is made.
 
-When the destination already has most of the state, move what changed instead of another complete copy when appropriate.
+Supporting evidence includes representation-isolated measurements through one
+million rows with exact fresh-process reconstruction checks. See
+[`ER-06`](evidence/releases/v1/receipts/ER-06-scaling/README.md).
 
-### Store less.
+## Read the receipts
 
-Reconstruct historical states without storing every generation in full when appropriate.
+Each receipt identifies the measured unit, comparator, conditions, exactness
+scope, accounting boundary, and material limitations. The ER-11 result is a
+validation-phase measurement—not an end-to-end transaction speedup—and its
+technical receipt preserves the `MIXED` verdict and failed memory gate.
 
-## Governed reconstruction
+Start with the [evidence front door](evidence/README.md), inspect the
+[machine-readable claim index](evidence/claims-v1.json), then run:
 
-Helix can verify that change belongs to known state before using it to reconstruct the next state. When a smaller representation is not appropriate, Helix can use complete state instead.
+```text
+python evidence/verify.py
+```
 
-## Live demo
+That command verifies the published hashes, claim bindings, and arithmetic. It
+does not execute Helix or independently reproduce the private experiments.
 
-[Run the bounded public demo](https://helixcompute-demo.onrender.com/demo?snapshot_interval=10).
+## Commercial boundary
 
-The demo shows:
+The public release contains only the evidence needed to substantiate these
+claims. Private implementations, routing logic, crossover research,
+representation layouts, proof machinery, optimization work, attack methods,
+and research failures remain private.
 
-- reduced application representation bytes;
-- exact reconstruction;
-- verification before acceptance;
-- invalid transition rejection without receiver mutation; and
-- complete-state fallback for dense change.
+Helix does not claim to win on every workload. FULL remains the correct route
+when retained validity or locality does not pay. See [claim
+boundaries](evidence/boundaries.md) and [limitations](evidence/limitations.md).
 
-## Measured results
+## Public surfaces
 
-- Up to **7.9x less application payload data moved** in tested sparse/local workloads. [Evidence](evidence/transport.md)
-- Up to **6.8x less expanded historical representation retained** in tested workloads. [Evidence](evidence/historical-storage.md)
-- Sparse-change scaling tested through **1,000,000 rows**. [Evidence](evidence/scaling.md)
-- **Exact reconstruction** across the cited validation campaigns. [Evidence](evidence/README.md)
+- [Website](https://www.helixcompute.io/)
+- [Evidence index](evidence/README.md)
+- [Methodology](evidence/methodology.md)
+- [Verification levels](evidence/reproduction-levels.md)
 
-Helix is designed for cases where change is smaller than state. When it is not, complete state may be the better representation.
+## Usage terms
 
-[Review the public evidence and measured boundaries](evidence/README.md).
+Licensing is assigned file by file. See [LICENSE.md](LICENSE.md), the
+[machine-readable scope](LICENSES/scope.json), and [USAGE.md](USAGE.md).
+Nothing in this release grants rights to Helix Core or any private technology.
 
-## Links
-
-- [Website](https://helixcompute.io)
-- [Live demo](https://helixcompute-demo.onrender.com/demo?snapshot_interval=10)
-- [Contact](https://helixcompute.io/contact.html)
-
-Copyright © 2026 Helix Compute Systems. All rights reserved.
+Copyright © 2026 Helix Compute Systems. Files not expressly licensed are all
+rights reserved.

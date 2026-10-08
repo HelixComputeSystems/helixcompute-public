@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "execution_scope": "representation-isolated workers",
+  "maximum_tested_estate_rows": 1000000,
+  "combined_production_qualification": false,
+  "isolated_fixed_32": {
+    "estate_rows": 1000000,
+    "changed_rows": 32,
+    "expanded_full_bytes": 168271594,
+    "helix_n5_bytes": 45926577,
+    "helix_n10_bytes": 30633476,
+    "expanded_full_div_helix_n5": "3.663926314386548",
+    "expanded_full_div_helix_n10": "5.4930623609282865",
+    "representations_completed": 5,
+    "representations_attempted": 5,
+    "exact_reconstructions": 10,
+    "attempted_reconstructions": 10
+  },
+  "isolated_fraction_996": {
+    "estate_rows": 1000000,
+    "changed_rows": 996,
+    "affected_fraction": "0.000996",
+    "expanded_full_bytes": 168278607,
+    "helix_n5_bytes": 46787692,
+    "helix_n10_bytes": 31601287,
+    "expanded_full_div_helix_n5": "3.5966426170369763",
+    "expanded_full_div_helix_n10": "5.325055495366375",
+    "representations_completed": 5,
+    "representations_attempted": 5,
+    "exact_reconstructions": 10,
+    "attempted_reconstructions": 10,
+    "pass_structure": {
+      "description": "primary pass plus frozen completion pass",
+      "single_uninterrupted_combined_pass": false,
+      "same_frozen_campaign_boundaries": true
+    }
+  }
+}

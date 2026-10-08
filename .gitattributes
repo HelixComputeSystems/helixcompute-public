@@ -1,0 +1,11 @@
+* text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.py text eol=lf
+*.sha256 text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+LICENSES/CC-BY-ND-4.0.txt whitespace=-blank-at-eof

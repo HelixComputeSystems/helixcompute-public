@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "operating_system": "Windows 11 build 26200, 64-bit",
+  "processor": "12th Gen Intel Core i7-1260P",
+  "logical_cpu_count": 16,
+  "python": "3.12.7, 64-bit, Anaconda build",
+  "sanitization": ["host name removed", "user name removed", "absolute filesystem paths removed"],
+  "relevance": "No public timing claim is made from this receipt. Environment details are retained only as provenance context."
+}

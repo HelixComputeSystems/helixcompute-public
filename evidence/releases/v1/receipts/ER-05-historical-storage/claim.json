@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "claim_ids": ["ER-05"],
+  "exact_permitted_statements": {
+    "ER-05": "Across three frozen 40-transition sparse/local historical-storage campaigns, compressed expanded FULL history used between 4.028407489997796× and 4.120914703075985× the retained file bytes used by Helix under the N=5 snapshot policy, and between 6.527574829433984× and 6.774059647451816× under N=10. Across all tested representations and policies, all 135 requested reconstructions were exact."
+  },
+  "required_qualifier": "The comparison is against retaining a compressed expanded FULL representation for every generation; it is not a smallest-incremental or latest-state-only claim.",
+  "reproduction_level": "RECEIPT_VERIFICATION"
+}

@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.helixcompute.io/evidence/claim.public.schema.json",
+  "$comment": "Canonical mirror of the active approved public-release schema.",
+  "title": "Helix approved public claim index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "release_id",
+    "release_status",
+    "publication_approved",
+    "reproduction_level",
+    "claims"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "release_id": {"const": "helix-evidence-v1"},
+    "release_status": {"const": "PUBLIC_RELEASE"},
+    "publication_approved": {"const": true},
+    "reproduction_level": {"const": "RECEIPT_VERIFICATION"},
+    "claims": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {"$ref": "#/$defs/claim"},
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": ["claim_id"],
+            "properties": {"claim_id": {"const": "ER-03"}}
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["claim_id"],
+            "properties": {"claim_id": {"const": "ER-04"}}
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["claim_id"],
+            "properties": {"claim_id": {"const": "ER-05"}}
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["claim_id"],
+            "properties": {"claim_id": {"const": "ER-06"}}
+          },
+          "minContains": 1,
+          "maxContains": 1
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": ["claim_id"],
+            "properties": {"claim_id": {"const": "ER-11"}}
+          },
+          "minContains": 1,
+          "maxContains": 1
+        }
+      ]
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_id",
+        "release_status",
+        "publication_approved",
+        "authority_status",
+        "exact_permitted_statement",
+        "evidence_class",
+        "frozen_verdict",
+        "conditions",
+        "measurement",
+        "accounting_boundary",
+        "exactness_scope",
+        "limitations",
+        "reproduction_level",
+        "receipt_path",
+        "forbidden_inferences"
+      ],
+      "properties": {
+        "claim_id": {"enum": ["ER-03", "ER-04", "ER-05", "ER-06", "ER-11"]},
+        "release_status": {"const": "PUBLIC_RELEASE"},
+        "publication_approved": {"const": true},
+        "authority_status": {"type": "string", "minLength": 1},
+        "exact_permitted_statement": {"type": "string", "minLength": 1},
+        "evidence_class": {
+          "enum": ["MEASURED", "NEGATIVE_RESULT", "MIXED"]
+        },
+        "frozen_verdict": {"enum": ["PASS", "PARTIAL", "MIXED"]},
+        "conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "measurement": {
+          "type": "object",
+          "required": ["metric", "unit", "recorded_values"],
+          "properties": {
+            "metric": {"type": "string"},
+            "unit": {"type": "string"},
+            "recorded_values": {"type": "object"}
+          },
+          "additionalProperties": true
+        },
+        "accounting_boundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["included", "excluded", "unknown"],
+          "properties": {
+            "included": {"type": "array", "items": {"type": "string"}},
+            "excluded": {"type": "array", "items": {"type": "string"}},
+            "unknown": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "exactness_scope": {"type": "string", "minLength": 1},
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        },
+        "reproduction_level": {"const": "RECEIPT_VERIFICATION"},
+        "receipt_path": {
+          "type": "string",
+          "pattern": "^releases/v1/receipts/"
+        },
+        "forbidden_inferences": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

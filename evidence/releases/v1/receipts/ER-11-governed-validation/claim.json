@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "claim_ids": ["ER-11"],
+  "exact_permitted_statements": {
+    "ER-11": "In the frozen Experiment 4.1 run-v2 qualification, at approximately 0.1% affected scope, the specific canonical FULL route's governed-validation wall time was 90.385× to 93.327× the experimental Helix route's across 44,224-, 250,000-, and 1,000,000-row deterministic in-memory estates. These are per-cell inverses of arithmetic means from three sequential measured transitions per fresh route worker after one warmup, with retained prepared state. The corresponding predeclared FULL/Helix route-total range was 3.421× to 3.534×. Both routes were exact and validated on all 36 unique measured transition instances; separately, all 333 measured mediated residual-unit instances were exactly localized and repaired in dedicated correctness cells. The experiment remained MIXED and qualification failed because its median sparse Helix/FULL incremental-RSS ratio was 1.5065586419753085 against a 1.50 ceiling; the final campaign was not run."
+  },
+  "reproduction_level": "RECEIPT_VERIFICATION"
+}

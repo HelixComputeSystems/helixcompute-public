@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "claim_ids": ["ER-06"],
+  "exact_permitted_statements": {
+    "ER-06": "In frozen representation-isolated one-million-row sparse/local campaigns, all five tested representations completed and 10/10 fresh-process reconstruction checks were exact in each regime. The fixed-32 campaign completed in its isolated pass; the 996-row result combines a primary pass with a frozen completion pass under the same campaign boundaries and is not one uninterrupted combined qualification. Expanded FULL bytes divided by Helix bytes were 3.663926× at N=5 and 5.493062× at N=10 for the fixed 32-row change, and 3.596643× at N=5 and 5.325055× at N=10 for the 996-row change."
+  },
+  "required_qualifier": "The campaigns were representation-isolated; the 996-row result spans two frozen passes and does not establish a combined production qualification, production memory behavior, or behavior above one million rows.",
+  "reproduction_level": "RECEIPT_VERIFICATION"
+}

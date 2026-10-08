@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "comparator": "compressed expanded FULL application payload versus Helix application payload including periodic snapshots",
+  "campaigns": 3,
+  "transitions_per_campaign": 40,
+  "n5": [
+    {"campaign": 1, "expanded_full_bytes": 27174521, "helix_bytes": 6071270, "expanded_full_div_helix": "4.475920"},
+    {"campaign": 2, "expanded_full_bytes": 27174648, "helix_bytes": 6226591, "expanded_full_div_helix": "4.364290"},
+    {"campaign": 3, "expanded_full_bytes": 27174250, "helix_bytes": 6194982, "expanded_full_div_helix": "4.386494"}
+  ],
+  "n10": [
+    {"campaign": 1, "expanded_full_bytes": 27174521, "helix_bytes": 3422902, "expanded_full_div_helix": "7.939030"},
+    {"campaign": 2, "expanded_full_bytes": 27174648, "helix_bytes": 3578232, "expanded_full_div_helix": "7.594434"},
+    {"campaign": 3, "expanded_full_bytes": 27174250, "helix_bytes": 3546605, "expanded_full_div_helix": "7.662046"}
+  ],
+  "ranges": {
+    "n5": {"minimum": "4.364290", "maximum": "4.475920"},
+    "n10": {"minimum": "7.594434", "maximum": "7.939030"}
+  },
+  "exactness": {
+    "helix_transitions_exact": 240,
+    "helix_transitions_attempted": 240,
+    "expanded_full_transitions_exact": 120,
+    "expanded_full_transitions_attempted": 120
+  },
+  "source_change_feed": "native delta-rs Delta Change Data Feed over deterministic generated histories"
+}

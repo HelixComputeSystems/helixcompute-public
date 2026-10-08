@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "operating_system": "Windows 11 build 26200, 64-bit",
+  "logical_cpu_count": 16,
+  "python": "3.12.7, 64-bit, Anaconda build",
+  "sanitization": ["private commit removed", "host name removed", "user name removed", "absolute filesystem paths removed"],
+  "portability_limit": "The receipt supports retained-byte and exactness claims only, not cross-machine timing claims."
+}

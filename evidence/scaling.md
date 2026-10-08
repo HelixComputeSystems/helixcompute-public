@@ -1,35 +1,30 @@
-# Sparse-change scaling
+# Representation-isolated one-million-row evidence
 
-## What was tested
+**Claim ID:** `ER-06`
 
-The scaling experiments increased the estate through these measured sizes:
+**Receipt:** [ER-06 scaling](releases/v1/receipts/ER-06-scaling/README.md)
 
-- 44,224 rows;
-- 100,000 rows;
-- 250,000 rows;
-- 500,000 rows; and
-- 1,000,000 rows.
+## What was measured
 
-Two sparse regimes were tested: a fixed 32-row change and an approximately 0.1% change. The fixed-32-row regime was measured through 1,000,000 rows using isolated representation runs. The approximately-0.1% regime was also measured through 1,000,000 rows. The experiments compared retained and transported representation bytes against expanded FULL, with periodic complete snapshots included.
+Two deterministic generated one-million-row sparse/local histories were tested
+in representation-isolated campaigns: a fixed 32-row change and a 996-row
+change (`0.0996%`). Periodic complete snapshots were included.
 
-## Approximately 0.1% change
+| Regime | Changed rows | Expanded FULL / Helix N=5 | Expanded FULL / Helix N=10 |
+| --- | ---: | ---: | ---: |
+| Fixed change | 32 | `3.663926×` | `5.493062×` |
+| Fractional change | 996 | `3.596643×` | `5.325055×` |
 
-| Estate rows | Changed rows | Actual affected fraction | Every 5 transitions | Every 10 transitions |
-| ---: | ---: | ---: | ---: | ---: |
-| 44,224 | 48 | 0.10854% | 3.579x | 5.281x |
-| 100,000 | 96 | 0.09600% | 3.593x | 5.317x |
-| 250,000 | 252 | 0.10080% | 3.593x | 5.316x |
-| 500,000 | 504 | 0.10080% | 3.594x | 5.319x |
-| 1,000,000 | 996 | 0.09960% | 3.5966x | 5.3251x |
+Every tested representation completed in the isolated evidence set, and each
+regime recorded `10/10` exact fresh-process reconstruction checks.
 
-The ratios are expanded FULL bytes divided by Helix bytes. Across this measured range, the approximately-0.1% curve remained nearly flat and slightly increased at one million rows. No scaling law is fitted.
+## Qualification
 
-The fixed-32-row measurements likewise retained a byte advantage through one million rows. At one million rows, the measured ratios were 3.6639x for snapshots every 5 transitions and 5.4931x for snapshots every 10 transitions.
+The 996-row result was completed across a primary pass and a frozen completion
+pass after not every route began in the first pass under the predeclared
+resource gate. It was not one uninterrupted combined pass.
 
-## Exactness and limits
-
-All 90 completed reconstruction checks in the 44,224-to-500,000-row scaling campaign were exact. In each isolated one-million-row campaign, all five tested representations completed and 10/10 fresh-process reconstruction checks were exact.
-
-The original combined one-million-row attempt reached its predeclared memory floor while holding multiple representations in one process. Isolated representation runs completed under the same limits, showing that stop was an overlapping-harness memory effect rather than a boundary reached by an individual tested representation.
-
-No two-million-row experiment was performed. No claim is made beyond the measured one-million-row range, and these results do not establish production-system scaling.
+The published evidence is representation-isolated. A separate combined
+one-million-row campaign did not produce a successful combined qualification
+and is not used as one here. The receipt establishes neither production memory
+behavior nor performance above one million rows, and no scaling law is fitted.

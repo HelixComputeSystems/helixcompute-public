@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "evidence_class": "MEASURED",
+  "measurement_label": "GOVERNED_VALIDATION_PHASE",
+  "frozen_verdict": "MIXED",
+  "protocol": {
+    "timer": "perf_counter_ns",
+    "published_timing_cells": 3,
+    "target_affected_fraction": "0.001",
+    "warmups_per_cell": 1,
+    "sequential_measured_transitions_per_cell": 3,
+    "route_workers": "fresh and non-overlapping for FULL and Helix",
+    "state_condition": "retained prepared state",
+    "comparison_statistic": "arithmetic mean of three governed-validation wall-time samples per route and cell",
+    "host_scope": "one host"
+  },
+  "baseline": {
+    "name": "frozen canonical FULL route",
+    "definition": "Python route that serializes and SHA-256-hashes every canonical row for both states and checks complete state-array equality",
+    "optimized_database": false,
+    "general_full_recomputation_baseline": false
+  },
+  "cells": [
+    {
+      "estate_rows": 44224,
+      "affected_rows": 44,
+      "actual_affected_fraction": "0.0009949348769898697",
+      "helix_governed_validation_wall_ns": [6813700, 6391100, 7287100],
+      "full_governed_validation_wall_ns": [644623700, 630099400, 637733700],
+      "helix_arithmetic_mean_ns": "6830633.333333333333",
+      "full_arithmetic_mean_ns": "637485600",
+      "full_over_helix": "93.327451334429701",
+      "helix_route_total_ns": 741675200,
+      "full_route_total_ns": 2537020600,
+      "full_over_helix_route_total": "3.420662575747443"
+    },
+    {
+      "estate_rows": 250000,
+      "affected_rows": 250,
+      "actual_affected_fraction": "0.001",
+      "helix_governed_validation_wall_ns": [42339500, 42343600, 38265500],
+      "full_governed_validation_wall_ns": [3705348100, 3699937100, 3838696700],
+      "helix_arithmetic_mean_ns": "40982866.666666666667",
+      "full_arithmetic_mean_ns": "3747993966.666666666667",
+      "full_over_helix": "91.452703812812834",
+      "helix_route_total_ns": 4255161200,
+      "full_route_total_ns": 15036817600,
+      "full_over_helix_route_total": "3.533783302968640"
+    },
+    {
+      "estate_rows": 1000000,
+      "affected_rows": 1000,
+      "actual_affected_fraction": "0.001",
+      "helix_governed_validation_wall_ns": [160394300, 160267600, 160514000],
+      "full_governed_validation_wall_ns": [14641560300, 14516901500, 14332732000],
+      "helix_arithmetic_mean_ns": "160391966.666666666667",
+      "full_arithmetic_mean_ns": "14497064600",
+      "full_over_helix": "90.385228769770057",
+      "helix_route_total_ns": 16897448300,
+      "full_route_total_ns": 58494576700,
+      "full_over_helix_route_total": "3.461740238021619"
+    }
+  ],
+  "full_over_helix_validation_range": {
+    "exact": ["90.385228769770057", "93.327451334429701"],
+    "rounded_for_claim": ["90.385", "93.327"]
+  },
+  "full_over_helix_route_total_range": {
+    "exact": ["3.420662575747443", "3.533783302968640"],
+    "rounded_for_claim": ["3.421", "3.534"]
+  },
+  "correctness": {
+    "unique_measured_transition_instances": 36,
+    "helix_exact_and_validated": 36,
+    "full_exact_and_validated": 36,
+    "separate_mediated_residual_units": 333,
+    "residual_units_exactly_localized": 333,
+    "residual_units_exactly_repaired": 333,
+    "published_output_pairs_for_independent_exactness_recomputation": false
+  },
+  "threat_boundary": {
+    "supported_update_model": "mediated authenticated updates",
+    "out_of_model_state_mutation_requires_independent_detection": true,
+    "private_counterexample_published": false,
+    "attack_construction_published": false
+  },
+  "memory_gate": {
+    "metric": "sampled process-tree peak minus prerelease baseline",
+    "median_helix_over_full_incremental_rss": "1.5065586419753085",
+    "ceiling": "1.50",
+    "result": "FAIL",
+    "causal_rss_attribution_established": false
+  },
+  "qualification": {
+    "governed_validation_wall_gate": "PASS",
+    "correctness_gate": "PASS",
+    "residual_localization_and_repair_gate": "PASS",
+    "incremental_rss_gate": "FAIL",
+    "overall_qualification": "FAIL",
+    "experiment": "MIXED",
+    "final_campaign": "NOT_RUN_QUALIFICATION_GATE"
+  }
+}

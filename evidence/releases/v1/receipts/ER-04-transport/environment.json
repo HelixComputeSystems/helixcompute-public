@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "execution_shape": "separate receiver process over localhost TCP",
+  "artifact_encoding": "canonical JSON plus deterministic gzip",
+  "sanitization": ["host identifiers removed", "private paths removed", "implementation details removed"],
+  "portability_limit": "No physical-network, public-internet, or cloud-egress behavior is established."
+}

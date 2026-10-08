@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "campaigns": 3,
+  "transitions_per_campaign": 40,
+  "comparisons": [
+    {"campaign": 1, "interval": 5, "expanded_bytes": 27865345, "helix_bytes": 6761932, "expanded_div_helix": "4.120914703075985"},
+    {"campaign": 1, "interval": 10, "expanded_bytes": 27865345, "helix_bytes": 4113537, "expanded_div_helix": "6.774059647451816"},
+    {"campaign": 2, "interval": 5, "expanded_bytes": 27865401, "helix_bytes": 6917225, "expanded_div_helix": "4.028407489997796"},
+    {"campaign": 2, "interval": 10, "expanded_bytes": 27865401, "helix_bytes": 4268875, "expanded_div_helix": "6.527574829433984"},
+    {"campaign": 3, "interval": 5, "expanded_bytes": 27865129, "helix_bytes": 6885649, "expanded_div_helix": "4.046841336234246"},
+    {"campaign": 3, "interval": 10, "expanded_bytes": 27865129, "helix_bytes": 4237238, "expanded_div_helix": "6.576248254169343"}
+  ],
+  "er05_n5_range": {"minimum": "4.028407489997796", "maximum": "4.120914703075985"},
+  "er05_n10_range": {"minimum": "6.527574829433984", "maximum": "6.774059647451816"},
+  "exactness": {"requested_reconstructions": 135, "exact_reconstructions": 135, "helix_requested": 54, "helix_exact": 54}
+}

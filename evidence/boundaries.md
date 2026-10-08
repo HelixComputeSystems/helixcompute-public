@@ -1,35 +1,42 @@
-# Where the measured advantage stops
+# Claim boundaries
 
-## Dense change
+These limitations define what the public measurements mean. The private
+research record contains additional negative results and experimental detail;
+those materials are not required to substantiate the released claims.
 
-Transport and historical-storage advantages deteriorated as affected state became dense. In the tested 50%-change cases, expanded FULL used fewer bytes than Helix.
+## Work avoided is not automatically time saved
 
-## Latest-state-only storage
+`ER-03` counts workload-defined rolling-row transforms. It does not count total
+operations, elapsed time, CPU, I/O, memory, or cost.
 
-If only current state is required, retaining one latest snapshot was substantially smaller than Helix reconstructable history in the tested campaign. Helix's historical-storage result applies when reconstructable prior generations are required.
+## Representation bytes are not infrastructure bills
 
-## Lean incremental history
+`ER-04` measures compressed application payload, not physical wire traffic or
+cloud egress. `ER-05` measures retained application-file bytes for
+reconstructable history, not device writes, cloud cost, latest-only retention,
+or the smallest possible incremental encoding.
 
-The competent forward-incremental comparator was smaller than Helix in the tested sparse historical-storage campaigns. Helix deliberately retains additional verification and reconstruction information that a lean forward-only representation may omit.
+## Locality has an economic boundary
 
-## Compression and deduplication
+Helix does not claim that selective representation always wins. In a tested
+dense condition, FULL was the smaller exact transport representation. No
+universal crossover threshold is claimed or published.
 
-A separate experiment used the one-million-row, approximately-0.1%-change history to ask whether Helix retained an advantage after lower-level byte reduction.
+The byte claims also do not establish that the same advantage survives every
+downstream deduplication, compression, or storage stack.
 
-After ordinary Zstandard compression, compared with compressed expanded FULL:
+## Scale evidence is isolated
 
-- Helix with snapshots every 5 transitions used 70.89% fewer bytes.
-- Helix with snapshots every 10 transitions used 79.60% fewer bytes.
+`ER-06` reports representation-isolated one-million-row evidence. It is not a
+successful combined production qualification, a memory-efficiency claim, or a
+scaling law.
 
-After the tested content-defined deduplication plus the same compression:
+## Validation time is a phase measurement
 
-- Helix with snapshots every 5 transitions used 5.65% fewer bytes.
-- Helix with snapshots every 10 transitions used 6.40% fewer bytes.
+`ER-11` compares governed-validation wall time against one frozen canonical
+FULL comparator. It is not end-to-end latency. The complete frozen experiment
+remained `MIXED`, failed its incremental-memory gate, and did not advance to
+the final campaign.
 
-The material-advantage threshold was frozen at 20% before measurement. Helix therefore did **not** retain a material advantage under that deduplication-plus-compression comparator. The competent incremental representation was smaller still in that experiment.
-
-These are measured retained-representation bytes, not cloud bills, physical network-wire bytes, or device-write amplification. The experiment does not publish the chunking implementation or private experimental code.
-
-## Interpretation
-
-Helix is not universal compression. Its measured advantage appears when change is sufficiently small relative to state and reconstructable history or transition transport is useful.
+Its supported threat model requires mediated authenticated updates or an
+independent detector for out-of-model state mutation.

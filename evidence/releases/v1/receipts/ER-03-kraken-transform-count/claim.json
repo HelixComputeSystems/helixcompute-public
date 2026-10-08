@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "claim_ids": ["ER-03"],
+  "exact_permitted_statements": {
+    "ER-03": "In the frozen 1,027,744-row Kraken historian fixture with 10 deterministic synthetic tail-appended rows, FULL processed 1,027,744 workload-defined rolling-row transforms and Helix processed 173; the benchmark recorded identical complete canonical output under its equivalence gate and SHA-256 digest."
+  },
+  "required_qualifier": "These counts cover workload-defined rolling-row transforms, not total work, CPU, validation, upstream preparation, change-obligation resolution, retained-state maintenance, I/O, persistence, or latency.",
+  "reproduction_level": "RECEIPT_VERIFICATION"
+}

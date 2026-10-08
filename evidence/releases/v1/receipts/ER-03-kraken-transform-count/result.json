@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "fixture": {
+    "seed": 20260804,
+    "source_rows": 1027734,
+    "target_rows": 1027744,
+    "mutation": "deterministic synthetic sparse tail append",
+    "inserted_rows": 10
+  },
+  "counter": {
+    "unit": "one workload-defined rolling transform per historian row",
+    "full": 1027744,
+    "helix": 173,
+    "full_div_helix": "5940.7167630057803468208092485549132947976878612717",
+    "reduction_percent": "99.983167014353769031976834698134944110595634710589"
+  },
+  "exactness": {
+    "equivalence_gate": "PASS",
+    "full_digest_sha256": "d4c3fd3cfa52d08a67f4cb95a99577d4f271bbb8a1c234ed5808bc2b3065f492",
+    "helix_digest_sha256": "d4c3fd3cfa52d08a67f4cb95a99577d4f271bbb8a1c234ed5808bc2b3065f492",
+    "recorded_result": "IDENTICAL_CANONICAL_ROUTE_OUTPUT",
+    "complete_outputs_public": false
+  }
+}

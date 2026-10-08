@@ -1,39 +1,34 @@
-# Transport
+# Transport representation
 
-## What was tested
+**Claim ID:** `ER-04`
 
-The transport campaign ran three independently seeded sparse/local histories, each containing 40 transitions. It compared two representations delivered to a separate receiver over localhost TCP:
+**Receipt:** [ER-04 transport](releases/v1/receipts/ER-04-transport/README.md)
 
-- a compressed expanded FULL representation for every transition; and
-- Helix transition traffic with periodic complete snapshots every 5 or 10 transitions.
+## What was measured
 
-Periodic snapshot traffic was included in the Helix totals. The common initial snapshot required by both sides was excluded symmetrically from the transition comparison.
+Three independently seeded deterministic generated histories each ran 40
+sparse/local transitions from native Delta Change Data Feed. A separate
+receiver accepted either a compressed expanded FULL representation for every
+transition or Helix transition artifacts with a complete snapshot every five
+or ten transitions.
 
-The byte measure is the application payload actually delivered across the TCP connection. It is not TCP/IP wire traffic, physical network traffic, or cloud egress.
+Periodic snapshot traffic is included in the Helix totals. The common initial
+snapshot was excluded symmetrically.
 
-## What was observed
-
-| Snapshot interval | Expanded bytes divided by Helix bytes |
+| Snapshot interval | Expanded FULL bytes / Helix bytes |
 | --- | ---: |
-| Every 5 transitions | 4.364x–4.476x |
-| Every 10 transitions | 7.594x–7.939x |
+| Every 5 transitions | `4.364290×–4.475920×` |
+| Every 10 transitions | `7.594434×–7.939030×` |
 
-Across the nominal campaigns, all 240 Helix transitions and all 120 expanded-FULL transitions reconstructed the expected state exactly.
+All 240 Helix transitions and all 120 expanded-FULL transitions reconstructed
+the expected receiver state exactly.
 
-Eight transport integrity and recovery scenarios also produced their predeclared outcomes. Seven invalid or malformed-sequence cases were rejected without accepting the invalid transition; the receiver-restart case recovered exact state and accepted the next valid transition.
+## Measurement boundary
 
-The public headline — **up to 7.9x less application payload data moved in tested sparse/local workloads** — rounds the best observed campaign result, 7.939x. It is not an average or a universal expectation.
+These are compressed **application-payload bytes**, not TCP/IP wire bytes,
+physical network traffic, cloud egress, cost, or latency. The largest ratio is
+one measured campaign-policy cell, not an average or universal expectation.
 
-## Dense-change boundary
-
-The advantage declined as a larger share of the state changed:
-
-| Affected rows | Expanded bytes divided by Helix bytes |
-| ---: | ---: |
-| 5.65% | approximately 2.554x |
-| 11.31% | approximately 1.278x |
-| 50% | approximately 0.289x |
-
-A ratio below 1 means Helix used more application payload bytes than the expanded representation. In the tested 50%-change control, dense change reversed the transport advantage.
-
-These measurements describe outcomes and boundaries. They do not publish the representation format or the procedures used to construct, validate, or apply it.
+The claim is bounded to the tested sparse/local histories and snapshot
+policies. In a separately tested dense condition, FULL was the smaller exact
+representation. No universal crossover threshold is published or claimed.

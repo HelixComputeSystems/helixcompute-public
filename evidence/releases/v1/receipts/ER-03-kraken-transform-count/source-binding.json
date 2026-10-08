@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "binding_scope": "Opaque SHA-256 commitments to private execution-worktree runtime bytes",
+  "commitment_kind": "private runtime-byte commitment",
+  "line_ending_note": "The benchmark and validation commitments identify execution-worktree CRLF bytes, not later LF-normalized Git blobs.",
+  "clean_clone_source_binding": false,
+  "artifact_commit_binding": false,
+  "authority_artifacts": [
+    {"role": "frozen benchmark result", "sha256": "2fd596dc2bd11348ec4d87e30ddcd9f2bfa0651989ee955995627ac093f693c7"},
+    {"role": "frozen exactness validation", "sha256": "272be417b551ab39d649f4c2fa8ad4875f1dfa66d7286d717e92409d3381db1b"},
+    {"role": "frozen benchmark configuration", "sha256": "9261c6b28fa368a940019554b278f70118bcd882f5e43a29d6fa4f06083a1f65"}
+  ],
+  "private_mapping_published": false,
+  "commitments_publicly_dereferenceable": false,
+  "commitments_rehashed_by_public_verifier": false,
+  "note": "Private filenames, paths, commit identities, implementation source, and provenance maps are intentionally excluded."
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "host_class": "single laptop",
+  "operating_system": "Windows 11, 64-bit",
+  "python": "3.12.7, 64-bit, Anaconda build",
+  "numpy": "2.5.3",
+  "psutil": "7.2.2",
+  "cpu_topology": "12 physical cores, 16 logical processors",
+  "system_memory_gb": "16.85",
+  "controls": {
+    "cpu_affinity": false,
+    "cpu_frequency_control": false,
+    "ordinary_application_processes_present": true,
+    "route_workers_fresh_and_nonoverlapping": true
+  },
+  "sanitization": [
+    "private commit identifiers removed",
+    "host and user identifiers removed",
+    "absolute paths removed",
+    "process identifiers removed",
+    "processor model removed"
+  ]
+}

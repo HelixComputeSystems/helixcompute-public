@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "release_status": "PUBLIC_RELEASE",
+  "environment_scope": "single Windows laptop",
+  "worker_isolation": "one representation per worker in the successful isolated campaigns",
+  "sanitization": ["host identifiers removed", "private paths removed", "implementation source removed", "private resource-control details removed"],
+  "portability_limit": "Production memory behavior and behavior on other machines are not established."
+}

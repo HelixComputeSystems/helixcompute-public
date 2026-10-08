@@ -1,0 +1,309 @@
+{
+  "schema_version": "1.0",
+  "release_id": "helix-evidence-v1",
+  "release_status": "PUBLIC_RELEASE",
+  "publication_approved": true,
+  "reproduction_level": "RECEIPT_VERIFICATION",
+  "claims": [
+    {
+      "claim_id": "ER-03",
+      "release_status": "PUBLIC_RELEASE",
+      "publication_approved": true,
+      "authority_status": "ACCEPTED_WITH_REQUIRED_QUALIFIERS",
+      "exact_permitted_statement": "In the frozen 1,027,744-row Kraken historian fixture with 10 deterministic synthetic tail-appended rows, FULL processed 1,027,744 workload-defined rolling-row transforms and Helix processed 173; the benchmark recorded identical complete canonical output under its equivalence gate and SHA-256 digest.",
+      "evidence_class": "MEASURED",
+      "frozen_verdict": "PASS",
+      "conditions": [
+        "One retained-state historian fixture with a deterministic ten-row tail append.",
+        "One affected feature partition containing 173 rows.",
+        "The compared counter is defined by the workload, not by CPU instructions or total operations."
+      ],
+      "measurement": {
+        "metric": "workload-defined rolling-row transforms",
+        "unit": "one rolling transform per historian row",
+        "recorded_values": {
+          "full": 1027744,
+          "helix": 173,
+          "full_div_helix": "5940.7167630057803468208092485549132947976878612717",
+          "reduction_percent": "99.983167014353769031976834698134944110595634710589"
+        }
+      },
+      "accounting_boundary": {
+        "included": [
+          "FULL rolling transforms over every target historian row",
+          "Helix rolling transforms over the affected 173-row feature partition"
+        ],
+        "excluded": [
+          "dataset loading and upstream preparation",
+          "change-obligation resolution and retained-state maintenance",
+          "validation, serialization, persistence, network, and elapsed time"
+        ],
+        "unknown": [
+          "total CPU work",
+          "end-to-end latency",
+          "production economics"
+        ]
+      },
+      "exactness_scope": "The frozen benchmark recorded a passing equivalence gate and matching SHA-256 digests for the FULL and Helix complete canonical outputs. The complete million-row outputs are not published for independent re-hashing.",
+      "limitations": [
+        "The counts are rolling-row transforms, not total work.",
+        "FULL applied the same Python rolling operator across the target state; it was not an independently optimized historian or database comparator.",
+        "The counter was derived from workload adapter coverage, not independent instrumentation of total CPU, I/O, or end-to-end work.",
+        "The exactness routes shared the workload operator and were not checked against an external semantic oracle.",
+        "The result is specific to the frozen tail-append fixture.",
+        "The execution worktree was dirty and content binding was partial: 28/28 enumerated files matched, but one dirty imported file and the interpreter or third-party binaries were not contemporaneously content-bound.",
+        "Receipt verification does not rerun the workload."
+      ],
+      "reproduction_level": "RECEIPT_VERIFICATION",
+      "receipt_path": "releases/v1/receipts/ER-03-kraken-transform-count",
+      "forbidden_inferences": [
+        "Helix was 5,941 times faster.",
+        "Helix avoided 99.983% of CPU, I/O, memory, cost, or total work.",
+        "The result is independently publicly reproducible."
+      ]
+    },
+    {
+      "claim_id": "ER-04",
+      "release_status": "PUBLIC_RELEASE",
+      "publication_approved": true,
+      "authority_status": "PUBLIC_BOUNDED_PASS",
+      "exact_permitted_statement": "Across three frozen 40-transition sparse/local campaigns, compressed expanded FULL used between 4.364290× and 4.475920× the application-payload bytes used by Helix under the N=5 snapshot policy, and between 7.594434× and 7.939030× under N=10. Across both policies, all 240 Helix transitions and all 120 expanded-FULL transitions reconstructed the expected state exactly.",
+      "evidence_class": "MEASURED",
+      "frozen_verdict": "PASS",
+      "conditions": [
+        "Three independently seeded deterministic generated 40-transition histories using native Delta Change Data Feed.",
+        "Compressed application artifacts were delivered over localhost TCP to a separate receiver.",
+        "Periodic complete snapshots every five or ten transitions were included in the corresponding Helix totals."
+      ],
+      "measurement": {
+        "metric": "expanded FULL application-payload bytes divided by Helix application-payload bytes",
+        "unit": "ratio of bytes delivered through the application socket",
+        "recorded_values": {
+          "n5_minimum": "4.364290",
+          "n5_maximum": "4.475920",
+          "n10_minimum": "7.594434",
+          "n10_maximum": "7.939030",
+          "campaigns": 3,
+          "helix_transitions_exact": 240,
+          "expanded_full_transitions_exact": 120
+        }
+      },
+      "accounting_boundary": {
+        "included": [
+          "compressed application-payload bytes delivered over localhost TCP",
+          "all periodic snapshot traffic for the N=5 and N=10 policies"
+        ],
+        "excluded": [
+          "common initial snapshot",
+          "TCP/IP framing and physical network counters",
+          "cloud egress, pricing, storage economics, and latency"
+        ],
+        "unknown": [
+          "public-internet behavior",
+          "production network overhead"
+        ]
+      },
+      "exactness_scope": "Receiver state was compared with the expected source state after every accepted transition: 240/240 Helix transitions and 120/120 expanded-FULL transitions were exact in the frozen campaigns.",
+      "limitations": [
+        "The upper ratio is one measured campaign-policy cell, not an average or universal expectation.",
+        "The result is bounded to the tested workload, encoding, and snapshot policy.",
+        "In a separately tested dense condition, FULL was the smaller exact representation; no universal crossover threshold is claimed."
+      ],
+      "reproduction_level": "RECEIPT_VERIFICATION",
+      "receipt_path": "releases/v1/receipts/ER-04-transport",
+      "forbidden_inferences": [
+        "Helix reduced physical wire bytes by 7.939×.",
+        "Helix reduced cloud egress cost by 7.939×.",
+        "Helix is universally 7.939× smaller."
+      ]
+    },
+    {
+      "claim_id": "ER-05",
+      "release_status": "PUBLIC_RELEASE",
+      "publication_approved": true,
+      "authority_status": "PUBLIC_BOUNDED_PASS",
+      "exact_permitted_statement": "Across three frozen 40-transition sparse/local historical-storage campaigns, compressed expanded FULL history used between 4.028407489997796× and 4.120914703075985× the retained file bytes used by Helix under the N=5 snapshot policy, and between 6.527574829433984× and 6.774059647451816× under N=10. Across all tested representations and policies, all 135 requested reconstructions were exact.",
+      "evidence_class": "MEASURED",
+      "frozen_verdict": "PASS",
+      "conditions": [
+        "Three independently seeded deterministic generated histories using native Delta Change Data Feed.",
+        "Forty transitions per history.",
+        "Reconstructable history with complete snapshots every five and ten transitions."
+      ],
+      "measurement": {
+        "metric": "expanded FULL retained file bytes divided by Helix retained file bytes",
+        "unit": "ratio of flushed retained file lengths",
+        "recorded_values": {
+          "n5_minimum": "4.028407489997796",
+          "n5_maximum": "4.120914703075985",
+          "n10_minimum": "6.527574829433984",
+          "n10_maximum": "6.774059647451816",
+          "exact_reconstructions": 135,
+          "attempted_reconstructions": 135,
+          "helix_exact_reconstructions": 54,
+          "helix_attempted_reconstructions": 54
+        }
+      },
+      "accounting_boundary": {
+        "included": [
+          "retained artifact file lengths",
+          "required metadata",
+          "periodic snapshots and reconstruction artifacts"
+        ],
+        "excluded": [
+          "filesystem allocation and journal traffic",
+          "device write amplification",
+          "cloud storage pricing"
+        ],
+        "unknown": [
+          "other filesystems and downstream compression stacks",
+          "production lifecycle costs"
+        ]
+      },
+      "exactness_scope": "All 135 scheduled historical reconstructions across the tested representations matched their expected state; the Helix-specific subset was 54/54.",
+      "limitations": [
+        "The comparator is expanded history, not one latest snapshot or the smallest incremental encoding.",
+        "A tested competent incremental comparator retained fewer application-file bytes than Helix, but the formats did not carry identical authority semantics.",
+        "The result applies when reconstructable prior generations are required.",
+        "The result does not claim an advantage after every downstream deduplication or compression stack."
+      ],
+      "reproduction_level": "RECEIPT_VERIFICATION",
+      "receipt_path": "releases/v1/receipts/ER-05-historical-storage",
+      "forbidden_inferences": [
+        "Helix is universal compression.",
+        "Helix always minimizes historical bytes.",
+        "Helix reduced physical storage writes by 6.774×."
+      ]
+    },
+    {
+      "claim_id": "ER-06",
+      "release_status": "PUBLIC_RELEASE",
+      "publication_approved": true,
+      "authority_status": "PUBLIC_BOUNDED_PASS",
+      "exact_permitted_statement": "In frozen representation-isolated one-million-row sparse/local campaigns, all five tested representations completed and 10/10 fresh-process reconstruction checks were exact in each regime. The fixed-32 campaign completed in its isolated pass; the 996-row result combines a primary pass with a frozen completion pass under the same campaign boundaries and is not one uninterrupted combined qualification. Expanded FULL bytes divided by Helix bytes were 3.663926× at N=5 and 5.493062× at N=10 for the fixed 32-row change, and 3.596643× at N=5 and 5.325055× at N=10 for the 996-row change.",
+      "evidence_class": "MEASURED",
+      "frozen_verdict": "PASS",
+      "conditions": [
+        "One-million-row estate.",
+        "Representation-isolated workers.",
+        "Fixed 32-row and 996-row sparse/local regimes.",
+        "The 996-row result combines a primary pass and frozen completion pass under the same frozen campaign boundaries.",
+        "Single-laptop campaign."
+      ],
+      "measurement": {
+        "metric": "expanded FULL representation bytes divided by Helix representation bytes",
+        "unit": "ratio of application representation bytes",
+        "recorded_values": {
+          "fixed_32_n5": "3.663926314386548",
+          "fixed_32_n10": "5.4930623609282865",
+          "fraction_996_n5": "3.5966426170369763",
+          "fraction_996_n10": "5.325055495366375"
+        }
+      },
+      "accounting_boundary": {
+        "included": [
+          "five representation builds per isolated evidence set",
+          "periodic snapshots",
+          "fresh-process generation 9 and 10 reconstruction checks"
+        ],
+        "excluded": [
+          "network framing and device-write amplification",
+          "production service overhead",
+          "behavior above one million rows"
+        ],
+        "unknown": [
+          "production memory behavior",
+          "hardware-independent scaling behavior"
+        ]
+      },
+      "exactness_scope": "Ten of ten fresh-process reconstruction checks were exact in each representation-isolated one-million-row regime.",
+      "limitations": [
+        "The measurements came from one laptop and do not establish production memory behavior.",
+        "The 996-row evidence set was not one uninterrupted combined pass.",
+        "A separate combined campaign did not produce a successful combined qualification and is not used as one.",
+        "No scaling law was fitted and no behavior above one million rows is claimed."
+      ],
+      "reproduction_level": "RECEIPT_VERIFICATION",
+      "receipt_path": "releases/v1/receipts/ER-06-scaling",
+      "forbidden_inferences": [
+        "Helix is production-certified at one million rows.",
+        "The result establishes behavior beyond one million rows.",
+        "The byte ratio is a wall-clock speedup."
+      ]
+    },
+    {
+      "claim_id": "ER-11",
+      "release_status": "PUBLIC_RELEASE",
+      "publication_approved": true,
+      "authority_status": "PUBLIC_BOUNDED_MEASURED_RESULT_WITH_MIXED_VERDICT",
+      "exact_permitted_statement": "In the frozen Experiment 4.1 run-v2 qualification, at approximately 0.1% affected scope, the specific canonical FULL route's governed-validation wall time was 90.385× to 93.327× the experimental Helix route's across 44,224-, 250,000-, and 1,000,000-row deterministic in-memory estates. These are per-cell inverses of arithmetic means from three sequential measured transitions per fresh route worker after one warmup, with retained prepared state. The corresponding predeclared FULL/Helix route-total range was 3.421× to 3.534×. Both routes were exact and validated on all 36 unique measured transition instances; separately, all 333 measured mediated residual-unit instances were exactly localized and repaired in dedicated correctness cells. The experiment remained MIXED and qualification failed because its median sparse Helix/FULL incremental-RSS ratio was 1.5065586419753085 against a 1.50 ceiling; the final campaign was not run.",
+      "evidence_class": "MEASURED",
+      "frozen_verdict": "MIXED",
+      "conditions": [
+        "Three deterministic in-memory estates: 44,224, 250,000, and 1,000,000 rows.",
+        "Published timing cells affected 44, 250, and 1,000 rows respectively, approximately 0.1% of each estate.",
+        "One warmup followed by three sequential measured transitions per fresh, non-overlapping route worker.",
+        "Retained prepared state on one host."
+      ],
+      "measurement": {
+        "metric": "specific frozen canonical FULL governed-validation wall time divided by experimental Helix governed-validation wall time",
+        "unit": "ratio of per-cell arithmetic-mean perf_counter_ns samples",
+        "recorded_values": {
+          "approximately_0_1_percent_minimum": "90.385228769770057",
+          "approximately_0_1_percent_maximum": "93.327451334429701",
+          "approximately_0_1_percent_route_total_minimum": "3.420662575747443",
+          "approximately_0_1_percent_route_total_maximum": "3.533783302968640",
+          "unique_measured_transitions": 36,
+          "helix_exact_and_validated": 36,
+          "full_exact_and_validated": 36,
+          "separate_residual_units_exactly_localized_and_repaired": 333,
+          "median_helix_over_full_incremental_rss": "1.5065586419753085",
+          "rss_ceiling": "1.50"
+        }
+      },
+      "accounting_boundary": {
+        "included": [
+          "admission and governance checks",
+          "declared successor-obligation validation",
+          "integrity-state update and consistency checks",
+          "candidate acceptance or promotion and ordinary in-call overhead"
+        ],
+        "excluded": [
+          "initial retained-state preparation",
+          "upstream change discovery and transition materialization",
+          "authority and receiver reconstruction",
+          "independent post-decision FULL examination",
+          "process launch, persistence, network, storage, and external integration"
+        ],
+        "unknown": [
+          "end-to-end production transaction latency",
+          "performance against optimized databases or alternate FULL implementations",
+          "hardware-independent performance distribution"
+        ]
+      },
+      "exactness_scope": "The same 36 unique measured transition instances were exercised by both routes, with 36/36 exact and validated for each. The separate 333/333 aggregate came from dedicated mediated correctness cells, not the published clean timing cells. Complete output pairs are not public for independent semantic recomputation.",
+      "limitations": [
+        "The headline ratio is governed-validation wall time, not end-to-end transaction, application, production, or outer-worker latency.",
+        "The adjacent route totals were only 3.421× to 3.534× and are defined phase sums, not outer-worker stopwatch latency.",
+        "The FULL baseline is one exact frozen Python canonical scan/hash/equality route, not an optimized database or universal full-computation baseline.",
+        "Each published cell contains three sequential measured transitions on one host; there are no confidence intervals, hardware replications, affinity controls, or frequency controls.",
+        "The independent examiner was excluded from timing but interleaved between measured transitions and may have affected cache state.",
+        "The measured advantage declined as affected scope increased; no universal curve, crossover point, or routing threshold is published or claimed.",
+        "The supported model requires mediated authenticated updates or a separate independent detector for out-of-model state mutation.",
+        "The execution directory was untracked at execution; an opaque content-hash bundle binds the executed materials, while the execution commit alone does not.",
+        "The incremental-RSS failure and MIXED verdict are inseparable from the measured validation result."
+      ],
+      "reproduction_level": "RECEIPT_VERIFICATION",
+      "receipt_path": "releases/v1/receipts/ER-11-governed-validation",
+      "forbidden_inferences": [
+        "Helix is 93× faster.",
+        "Helix transactions are 93× faster end to end.",
+        "Helix is 93× faster than databases, Kafka, Delta Lake, Parquet, or full computation generally.",
+        "The published timing cells included 333 repaired residual units.",
+        "Experiment 4.1 passed.",
+        "Helix uses less memory than FULL.",
+        "The result is production-certified or independently publicly reproducible."
+      ]
+    }
+  ]
+}
